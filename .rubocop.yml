@@ -1,0 +1,29 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+Rails:
+  Enabled: true
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+
+Style/IndentArray:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Style/ModuleFunction:
+  Enabled: false

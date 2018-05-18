@@ -44,23 +44,49 @@ class MjmlPremailer
       validation_level_option = "--config.validationLevel #{validation_level}"
 
       read_input_to_stdin_option = '-i'
-      write_output_to_stdout_option = '-s'
 
-      cmd = [
-        bin,
-        read_input_to_stdin_option,
-        write_output_to_stdout_option,
-        beautify_option,
-        minify_option,
-        keep_comments_option,
-        validation_level_option
-      ].join(' ')
+      should_get_outpout_from_file = html_body.size > 20_000
 
-      debug "> MjmlPremailer command: #{cmd}"
+      if should_get_outpout_from_file
+        temp_file = Tempfile.new
 
-      out, err, _sts = Open3.capture3(cmd, stdin_data: html_body)
+        write_output_to_tempfile_option = "-o #{temp_file.path}"
 
-      [out, err]
+        cmd = [
+          bin,
+          read_input_to_stdin_option,
+          write_output_to_tempfile_option,
+          beautify_option,
+          minify_option,
+          keep_comments_option,
+          validation_level_option
+        ].join(' ')
+
+        _out, err, _sts = Open3.capture3(cmd, stdin_data: html_body)
+
+        temp_file.rewind
+        temp_file.unlink
+
+        [temp_file.read, err]
+      else
+        write_output_to_stdout_option = '-s'
+
+        cmd = [
+          bin,
+          read_input_to_stdin_option,
+          write_output_to_stdout_option,
+          beautify_option,
+          minify_option,
+          keep_comments_option,
+          validation_level_option
+        ].join(' ')
+
+        debug "> MjmlPremailer command: #{cmd}"
+
+        out, err, _sts = Open3.capture3(cmd, stdin_data: html_body)
+
+        [out, err]
+      end
     end
 
     def debug(str)
