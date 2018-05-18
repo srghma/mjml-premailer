@@ -45,6 +45,7 @@ class MjmlPremailer
 
       read_input_to_stdin_option = '-i'
 
+      # stolen from https://github.com/kolybasov/mjml-ruby/blob/master/lib/mjml/parser.rb
       should_get_outpout_from_file = html_body.size > 20_000
 
       if should_get_outpout_from_file

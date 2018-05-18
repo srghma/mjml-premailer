@@ -7,7 +7,7 @@ require 'mjml-premailer/find_executable'
 class MjmlPremailer
   # from https://github.com/kolybasov/mjml-ruby/blob/master/lib/mjml.rb#L33
   @config = {
-    debug:            true,
+    debug:            false,
     bin:              MjmlPremailer::FindExecutable.find_executable,
     beautify:         true,
     minify:           false,
