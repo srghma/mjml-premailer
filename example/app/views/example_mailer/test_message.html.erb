@@ -1,0 +1,9 @@
+<mj-section>
+  <mj-column>
+    <mj-text>Hello from test_message outside block</mj-text>
+
+    <%= render 'wrapper' do %>
+      <mj-text>Hello from test_message inside block</mj-text>
+    <% end %>
+  </mj-column>
+</mj-section>
