@@ -2,14 +2,20 @@ sudo: false
 language: ruby
 cache: bundler
 script: bundle exec rspec
+
 rvm:
-  - 2.4.1
+  - 2.5
+
+before_install:
+  - npm install -g mjml
+
 env:
   matrix:
-    - ACTION_MAILER_VERSION=4
-    - ACTION_MAILER_VERSION=5
-    - ACTION_MAILER_VERSION=master
+    - RAILS_VERSION=4
+    - RAILS_VERSION=5
+    - RAILS_VERSION=master
+
 matrix:
   fast_finish: true
   allow_failures:
-    - env: ACTION_MAILER_VERSION=master
+    - env: RAILS_VERSION=master

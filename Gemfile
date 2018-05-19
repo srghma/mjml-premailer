@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-rails_version = ENV.fetch('ACTION_MAILER_VERSION', '5')
+rails_version = ENV.fetch('RAILS_VERSION', '5')
 
 if rails_version == 'master'
   git 'git://github.com/rails/rails.git' do
