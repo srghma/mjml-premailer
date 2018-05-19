@@ -42,7 +42,7 @@ In `/config/initializers/mjml_premailer.rb`
 
 ```ruby
 MjmlPremailer.config.merge!(
-  bin:              ...,   # by default found authomatically
+  bin:              ...,   # by default bin path is found authomatically, but you can specify it here
   debug:            false, # true/false
   beautify:         true,  # true/false
   minify:           false, # true/false
