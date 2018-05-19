@@ -11,7 +11,6 @@ before_install:
 
 env:
   matrix:
-    - RAILS_VERSION=4
     - RAILS_VERSION=5
     - RAILS_VERSION=master
 
