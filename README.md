@@ -2,11 +2,10 @@
 
 Write your emails using [mjml framework](https://mjml.io) on rails, using any template language supported by Rails
 
-[![Build Status][build-image]][build-link]
-[![Gem Version][gem-image]][gem-link]
-[![Dependency Status][deps-image]][deps-link]
-[![Code Climate][gpa-image]][gpa-link]
-[![Coverage Status][cov-image]][cov-link]
+[![Travis](https://travis-ci.org/srghma/mjml-premailer.svg?branch=master)](https://travis-ci.org/srghma/mjml-premailer)
+[![GitHub version](https://badge.fury.io/gh/srghma%2Fmjml-premailer.svg)](https://badge.fury.io/gh/srghma%2Fmjml-premailer)
+[![Maintainability](https://api.codeclimate.com/v1/badges/87ecd26fdfceb00dacb6/maintainability)](https://codeclimate.com/github/srghma/mjml-premailer/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/srghma/mjml-premailer/badge.svg?branch=master)](https://coveralls.io/github/srghma/mjml-premailer?branch=master)
 
 ## How it works
 This gem will processes html part of your mail using `mjml` cli before delivery using rails ActionMailer hook
@@ -96,14 +95,3 @@ Mjml documentation is [here](https://mjml.io/documentation)
 - best gem I found
 - doesnt support mjml v4 (at time of writing)
 - doesnt support template languages then erb (at least I didnt managed)
-
-[build-image]: https://travis-ci.org/srghma/mjml-premailer.svg
-[build-link]:  https://travis-ci.org/srghma/mjml-premailer
-[gem-image]:   https://badge.fury.io/rb/mjml-premailer.svg
-[gem-link]:    https://rubygems.org/gems/mjml-premailer
-[deps-image]:  https://gemnasium.com/srghma/mjml-premailer.svg
-[deps-link]:   https://gemnasium.com/srghma/mjml-premailer
-[gpa-image]:   https://codeclimate.com/github/srghma/mjml-premailer.svg
-[gpa-link]:    https://codeclimate.com/github/srghma/mjml-premailer
-[cov-image]:   https://coveralls.io/repos/srghma/mjml-premailer/badge.svg
-[cov-link]:    https://coveralls.io/r/srghma/mjml-premailer
