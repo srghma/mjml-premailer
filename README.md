@@ -81,6 +81,7 @@ end
 ```
 
 Example rails project you can find [here](example)
+
 Mjml documentation is [here](https://mjml.io/documentation)
 
 
