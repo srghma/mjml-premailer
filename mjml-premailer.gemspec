@@ -5,12 +5,12 @@ Gem::Specification.new do |s|
   s.name        = 'mjml-premailer'
   s.version     = MjmlPremailer::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.license     = 'MIT'
+  s.license     = 'Apache-2.0'
   s.authors     = ['Sergey Homa']
   s.email       = ['srghma@gmail.com']
   s.homepage    = 'https://github.com/srghma/mjml-premailer'
-  s.summary     = ''
-  s.description = ''
+  s.summary     = 'Write your emails using mjml framework'
+  s.description = 'This gem will processes html part of your mail using `mjml` cli before delivery using rails ActionMailer hook'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {example,spec}/*`.split("\n")
