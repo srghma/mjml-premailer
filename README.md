@@ -93,6 +93,6 @@ Mjml documentation is [here](https://mjml.io/documentation)
 - no support for `/app/views/layouts`
 
 [kolybasov/mjml-ruby](https://github.com/kolybasov/mjml-ruby/):
-- best gem I found
+- best gem I found, this gem is based on it, thanks [kolybasov](https://github.com/kolybasov) for his work
 - doesnt support mjml v4 (at time of writing)
 - doesnt support template languages other then erb (at least I didnt managed)
