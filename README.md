@@ -3,7 +3,7 @@
 Write your emails using [mjml framework](https://mjml.io) on rails, using any template language supported by Rails
 
 [![Travis](https://travis-ci.org/srghma/mjml-premailer.svg?branch=master)](https://travis-ci.org/srghma/mjml-premailer)
-[![GitHub version](https://badge.fury.io/gh/srghma%2Fmjml-premailer.svg)](https://badge.fury.io/gh/srghma%2Fmjml-premailer)
+[![Gem Version](https://badge.fury.io/rb/mjml-premailer.svg)](https://badge.fury.io/rb/mjml-premailer)
 [![Maintainability](https://api.codeclimate.com/v1/badges/87ecd26fdfceb00dacb6/maintainability)](https://codeclimate.com/github/srghma/mjml-premailer/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/srghma/mjml-premailer/badge.svg?branch=master)](https://coveralls.io/github/srghma/mjml-premailer?branch=master)
 

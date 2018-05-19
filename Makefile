@@ -8,3 +8,6 @@ run_env:
 		starefossen/ruby-node:latest \
 		bash -c "bundle install && npm install -g mjml && bash"
 
+publish:
+	gem build mjml-premailer
+	gem push mjml-premailer-$$(cat VERSION).gem
