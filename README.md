@@ -94,4 +94,4 @@ Mjml documentation is [here](https://mjml.io/documentation)
 [kolybasov/mjml-ruby](https://github.com/kolybasov/mjml-ruby/):
 - best gem I found
 - doesnt support mjml v4 (at time of writing)
-- doesnt support template languages then erb (at least I didnt managed)
+- doesnt support template languages other then erb (at least I didnt managed)
