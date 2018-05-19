@@ -51,6 +51,8 @@ MjmlPremailer.config.merge!(
 )
 ```
 
+More about options [here](https://mjml.io/documentation/#command-line-interface)
+
 ## Usage
 
 ```erb
