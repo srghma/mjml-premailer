@@ -71,7 +71,7 @@ MjmlPremailer.config.merge!(
 
 ```
 
-```
+```rb
 class WelcomeMailer < ApplicationMailer
   def welcome(user)
     @user = user
