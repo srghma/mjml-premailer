@@ -90,8 +90,6 @@ Mjml documentation is [here](https://mjml.io/documentation)
 ## Difference from other gems
 
 [sighmon/mjml-rails](https://github.com/sighmon/mjml-rails):
-- outdated
-- work on hacks
 - no support for `/app/views/layouts`
 
 [kolybasov/mjml-ruby](https://github.com/kolybasov/mjml-ruby/):
