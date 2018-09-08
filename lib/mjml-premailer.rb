@@ -1,8 +1,11 @@
-require 'action_mailer'
-
 require 'mjml-premailer/version'
-require 'mjml-premailer/hook'
+require 'mjml-premailer/debug'
 require 'mjml-premailer/find_executable'
+
+require 'mjml-premailer/transform_html'
+require 'mjml-premailer/transform_mail'
+
+require 'mjml-premailer/mjml_mail'
 
 class MjmlPremailer
   # from https://github.com/kolybasov/mjml-ruby/blob/master/lib/mjml.rb#L33
@@ -18,14 +21,4 @@ class MjmlPremailer
   class << self
     attr_accessor :config
   end
-
-  def self.register_interceptors
-    ActionMailer::Base.register_interceptor(MjmlPremailer::Hook)
-
-    if ActionMailer::Base.respond_to?(:register_preview_interceptor)
-      ActionMailer::Base.register_preview_interceptor(MjmlPremailer::Hook)
-    end
-  end
 end
-
-require 'mjml-premailer/railtie' if defined?(Rails)

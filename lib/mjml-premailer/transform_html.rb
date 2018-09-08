@@ -1,37 +1,13 @@
 require 'open3'
 
 class MjmlPremailer
-  module Hook
+  module TransformHtml
     extend self
 
-    def perform(mail)
-      html_part = mail.html_part || mail
-      html = html_part.body.to_s
+    def transform_html(html_body)
+      bin = MjmlPremailer.config[:bin]
 
-      debug '> MjmlPremailer template:'
-      debug html
-
-      parsed_html, error = parse(html)
-
-      error_ = error.strip.presence
-
-      raise error_ if error_
-
-      debug '> MjmlPremailer parsed template:'
-      debug parsed_html
-
-      html_part.body = parsed_html
-    end
-
-    alias delivering_email perform
-    alias previewing_email perform
-
-    private
-
-    def parse(html_body)
-      bin              = MjmlPremailer.config[:bin]
-
-      beautify         = MjmlPremailer.config[:beautify]
+      beautify = MjmlPremailer.config[:beautify]
       beautify_option = "--config.beautify #{beautify}"
 
       minify = MjmlPremailer.config[:minify]
@@ -68,7 +44,9 @@ class MjmlPremailer
         temp_file.rewind
         temp_file.unlink
 
-        [temp_file.read, err]
+        err_ = err.strip.presence
+
+        [temp_file.read, err_]
       else
         write_output_to_stdout_option = '-s'
 
@@ -82,16 +60,14 @@ class MjmlPremailer
           validation_level_option
         ].join(' ')
 
-        debug "> MjmlPremailer command: #{cmd}"
+        MjmlPremailer::Debug.debug "> MjmlPremailer command: #{cmd}"
 
         out, err, _sts = Open3.capture3(cmd, stdin_data: html_body)
 
-        [out, err]
-      end
-    end
+        err_ = err.strip.presence
 
-    def debug(str)
-      puts str if MjmlPremailer.config[:debug]
+        [out, err_]
+      end
     end
   end
 end

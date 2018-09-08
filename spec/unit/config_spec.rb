@@ -3,6 +3,7 @@ require 'spec_helper'
 describe MjmlPremailer do
   describe '#config' do
     subject { MjmlPremailer.config }
+
     context 'when set' do
       around do |example|
         begin
