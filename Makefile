@@ -11,3 +11,6 @@ run_env:
 publish:
 	gem build mjml-premailer
 	gem push mjml-premailer-$$(cat VERSION).gem
+
+test:
+	bundle exec rspec
