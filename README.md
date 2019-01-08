@@ -8,13 +8,58 @@ Write your emails using [mjml framework](https://mjml.io) on rails, using any te
 [![Coverage Status](https://coveralls.io/repos/github/srghma/mjml-premailer/badge.svg?branch=master)](https://coveralls.io/github/srghma/mjml-premailer?branch=master)
 
 ## How it works
-This gem will processes html part of your mail using `mjml` cli before delivery using rails ActionMailer hook
 
-Or you can process it yourself using
+This gem will processes html part of your mail using `mjml` cli before delivery, just use `mjml_mail` function for delivery instead of `mail`
+
+```rb
+class ApplicationMailer < ActionMailer::Base
+  include MjmlPremailer::MjmlMail # adds function `mjml_mail`
+
+  layout "mailer"
+end
+```
+
+```rb
+class WelcomeMailer < ApplicationMailer
+  def welcome(user)
+    @user = user
+    mjml_mail(to: @user.email, subject: 'Welcome')
+  end
+end
+```
+
+```erb
+<!-- app/views/layouts/mailer.html.erb -->
+
+<mjml>
+  <mj-head>
+    <mj-head>
+      My site
+    <mj-head>
+  <mj-head>
+  <mj-body>
+    <%= yield %>
+  <mj-body>
+</mjml>
+```
+
+
+```erb
+<!-- app/views/welcome_mailer/welcome.html.erb -->
+
+<mj-text>Hello, <%= @user.name %></mj-text>
+```
+
+Or you can transform mail object yourself using
 
 ```ruby
-MjmlPremailer::Hook.perform(mail)
+MjmlPremailer::TransformMail.transform_mail(mail)
 ```
+
+Example rails project you can find [here](example)
+
+Mjml documentation is [here](https://mjml.io/documentation)
+
 
 ## Installation
 
@@ -33,7 +78,7 @@ $ npm install --save-dev mjml@^4.0
 Add the gem to your `Gemfile`:
 
 ```ruby
-gem 'mjml-premailer'
+gem "mjml-premailer"
 ```
 
 ## Configuration options
@@ -42,49 +87,19 @@ In `/config/initializers/mjml_premailer.rb`
 
 ```ruby
 MjmlPremailer.config.merge!(
-  bin:              ...,   # by default bin path is found authomatically, but you can specify it here
-  debug:            false, # true/false
-  beautify:         true,  # true/false
-  minify:           false, # true/false
-  keep_comments:    false, # true/false
-  validation_level: :skip  # :strict/:soft/:skip
+  minify:        Rails.env.production?,  # default - false
+  beautify:      !Rails.env.production?, # default - true
+  keep_comments: !Rails.env.production?, # default - false
+
+  ## other possible options
+
+  # debug: false,           # default - false
+  # bin:   ...,             # by default bin path is found authomatically, but you can specify it here
+  # validation_level: :skip # default - :skip, possible options - :strict/:soft/:skip
 )
 ```
 
 More about options [here](https://mjml.io/documentation/#command-line-interface)
-
-## Usage
-
-```erb
-<!-- app/views/layouts/mailer.html.erb -->
-
-<mjml>
-  <mj-body>
-    <%= yield %>
-  <mj-body>
-</mjml>
-```
-
-
-```erb
-<!-- app/views/welcome_mailer/welcome.html.erb -->
-
-<mj-text>Hello, <%= @user.name %></mj-text>
-
-```
-
-```rb
-class WelcomeMailer < ApplicationMailer
-  def welcome(user)
-    @user = user
-    mail(to: @user.email, subject: 'Welcome')
-  end
-end
-```
-
-Example rails project you can find [here](example)
-
-Mjml documentation is [here](https://mjml.io/documentation)
 
 
 ## Difference from other gems
