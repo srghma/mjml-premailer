@@ -21,9 +21,28 @@ Layout/MultilineMethodCallIndentation:
   Exclude:
     - 'spec/**/*'
 
-Style/IndentArray:
+Layout/IndentArray:
+  Enabled: true
+  EnforcedStyle: consistent
+
+Layout/IndentHash:
   Enabled: true
   EnforcedStyle: consistent
 
 Style/ModuleFunction:
   Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: 'double_quotes'
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Layout/AlignHash:
+  Enabled: true
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+  EnforcedLastArgumentHashStyle: ignore_implicit

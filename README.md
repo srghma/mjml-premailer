@@ -101,7 +101,6 @@ MjmlPremailer.config.merge!(
 
 More about options [here](https://mjml.io/documentation/#command-line-interface)
 
-
 ## Difference from other gems
 
 [sighmon/mjml-rails](https://github.com/sighmon/mjml-rails):
@@ -111,3 +110,11 @@ More about options [here](https://mjml.io/documentation/#command-line-interface)
 - best gem I found, this gem is based on it, thanks [kolybasov](https://github.com/kolybasov) for his work
 - doesnt support mjml v4 (at time of writing)
 - doesnt support template languages other then erb (at least I didnt managed)
+
+## Hacking
+
+```
+make run_env
+make test
+make publish
+```
